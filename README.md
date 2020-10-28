@@ -110,7 +110,7 @@ Universal.xcframework/
 
 > /usr/libexec/PlistBuddy -c print Universal.xcframework/Info.plist 
 
-```plist
+```
 Dict {
     AvailableLibraries = Array {
         Dict {
