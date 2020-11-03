@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		D1BEB4F22548F4C0009BD39A /* Universal.h in Headers */ = {isa = PBXBuildFile; fileRef = D1BEB4F02548F4C0009BD39A /* Universal.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D1BEB4FA2550EF0B009BD39A /* Universal.m in Sources */ = {isa = PBXBuildFile; fileRef = D1BEB4F92550EF0B009BD39A /* Universal.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D1BEB4ED2548F4C0009BD39A /* Universal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Universal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1BEB4F02548F4C0009BD39A /* Universal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Universal.h; sourceTree = "<group>"; };
 		D1BEB4F12548F4C0009BD39A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D1BEB4F92550EF0B009BD39A /* Universal.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Universal.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +50,7 @@
 			children = (
 				D1BEB4F02548F4C0009BD39A /* Universal.h */,
 				D1BEB4F12548F4C0009BD39A /* Info.plist */,
+				D1BEB4F92550EF0B009BD39A /* Universal.m */,
 			);
 			path = Universal;
 			sourceTree = "<group>";
@@ -130,6 +133,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1BEB4FA2550EF0B009BD39A /* Universal.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
