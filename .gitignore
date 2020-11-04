@@ -3,3 +3,6 @@ xcuserdata/
 project.xcworkspace/
 tmp/
 Universal.xcframework/
+**/bin/
+**/obj/
+**/.vs/
