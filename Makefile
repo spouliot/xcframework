@@ -19,14 +19,14 @@ macos:
 
 Universal.xcframework:
 	xcodebuild -create-xcframework \
-		-framework tmp/archive/ios.xcarchive/Products/Library/Frameworks/Universal.framework \
-		-framework tmp/archive/ios-sim.xcarchive/Products/Library/Frameworks/Universal.framework \
-		-framework tmp/archive/tvos.xcarchive/Products/Library/Frameworks/Universal.framework \
-		-framework tmp/archive/tvos-sim.xcarchive/Products/Library/Frameworks/Universal.framework \
-		-framework tmp/archive/watchos.xcarchive/Products/Library/Frameworks/Universal.framework \
-		-framework tmp/archive/watchos-sim.xcarchive/Products/Library/Frameworks/Universal.framework \
-		-framework tmp/archive/macos-catalyst.xcarchive/Products/Library/Frameworks/Universal.framework \
-		-framework tmp/archive/macos.xcarchive/Products/Library/Frameworks/Universal.framework \
+		-framework tmp/archive/ios.xcarchive/Products/Library/Frameworks/Universal.framework -debug-symbols `pwd`/tmp/archive/ios.xcarchive/dSYMs/Universal.framework.dSYM \
+		-framework tmp/archive/ios-sim.xcarchive/Products/Library/Frameworks/Universal.framework -debug-symbols `pwd`/tmp/archive/ios-sim.xcarchive/dSYMs/Universal.framework.dSYM \
+		-framework tmp/archive/tvos.xcarchive/Products/Library/Frameworks/Universal.framework -debug-symbols `pwd`/tmp/archive/tvos.xcarchive/dSYMs/Universal.framework.dSYM \
+		-framework tmp/archive/tvos-sim.xcarchive/Products/Library/Frameworks/Universal.framework -debug-symbols `pwd`/tmp/archive/tvos-sim.xcarchive/dSYMs/Universal.framework.dSYM \
+		-framework tmp/archive/watchos.xcarchive/Products/Library/Frameworks/Universal.framework -debug-symbols `pwd`/tmp/archive/watchos.xcarchive/dSYMs/Universal.framework.dSYM \
+		-framework tmp/archive/watchos-sim.xcarchive/Products/Library/Frameworks/Universal.framework -debug-symbols `pwd`/tmp/archive/watchos-sim.xcarchive/dSYMs/Universal.framework.dSYM \
+		-framework tmp/archive/macos-catalyst.xcarchive/Products/Library/Frameworks/Universal.framework -debug-symbols `pwd`/tmp/archive/macos-catalyst.xcarchive/dSYMs/Universal.framework.dSYM \
+		-framework tmp/archive/macos.xcarchive/Products/Library/Frameworks/Universal.framework -debug-symbols `pwd`/tmp/archive/macos.xcarchive/dSYMs/Universal.framework.dSYM \
 		-output Universal.xcframework
 
 clean:
