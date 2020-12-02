@@ -11,6 +11,8 @@ A simple xcframework sample for testing purpose
 Universal.xcframework/
 ├── Info.plist
 ├── ios-arm64
+│   ├── BCSymbolMaps
+│   │   └── 70773BD0-5F33-3DA9-B5C8-3BD3C40EFAE6.bcsymbolmap
 │   ├── Universal.framework
 │   │   ├── Headers
 │   │   │   └── Universal.h
@@ -27,24 +29,7 @@ Universal.xcframework/
 │               └── Resources
 │                   └── DWARF
 │                       └── Universal
-├── ios-arm64_x86_64-simulator
-│   ├── Universal.framework
-│   │   ├── Headers
-│   │   │   └── Universal.h
-│   │   ├── Info.plist
-│   │   ├── Modules
-│   │   │   └── module.modulemap
-│   │   ├── Universal
-│   │   └── _CodeSignature
-│   │       └── CodeResources
-│   └── dSYMs
-│       └── Universal.framework.dSYM
-│           └── Contents
-│               ├── Info.plist
-│               └── Resources
-│                   └── DWARF
-│                       └── Universal
-├── ios-x86_64-maccatalyst
+├── ios-arm64_x86_64-maccatalyst
 │   ├── Universal.framework
 │   │   ├── Headers -> Versions/Current/Headers
 │   │   ├── Modules -> Versions/Current/Modules
@@ -69,7 +54,24 @@ Universal.xcframework/
 │               └── Resources
 │                   └── DWARF
 │                       └── Universal
-├── macos-x86_64
+├── ios-arm64_x86_64-simulator
+│   ├── Universal.framework
+│   │   ├── Headers
+│   │   │   └── Universal.h
+│   │   ├── Info.plist
+│   │   ├── Modules
+│   │   │   └── module.modulemap
+│   │   ├── Universal
+│   │   └── _CodeSignature
+│   │       └── CodeResources
+│   └── dSYMs
+│       └── Universal.framework.dSYM
+│           └── Contents
+│               ├── Info.plist
+│               └── Resources
+│                   └── DWARF
+│                       └── Universal
+├── macos-arm64_x86_64
 │   ├── Universal.framework
 │   │   ├── Headers -> Versions/Current/Headers
 │   │   ├── Modules -> Versions/Current/Modules
@@ -95,6 +97,8 @@ Universal.xcframework/
 │                   └── DWARF
 │                       └── Universal
 ├── tvos-arm64
+│   ├── BCSymbolMaps
+│   │   └── CF0F42BE-4538-39F9-982D-644FA5E2E462.bcsymbolmap
 │   ├── Universal.framework
 │   │   ├── Headers
 │   │   │   └── Universal.h
@@ -129,6 +133,9 @@ Universal.xcframework/
 │                   └── DWARF
 │                       └── Universal
 ├── watchos-arm64_32_armv7k
+│   ├── BCSymbolMaps
+│   │   ├── 9E7FD72F-BA71-36C6-85CC-CE1D04758A7A.bcsymbolmap
+│   │   └── A9A90270-B5EF-33B1-BCB4-D433FD205664.bcsymbolmap
 │   ├── Universal.framework
 │   │   ├── Headers
 │   │   │   └── Universal.h
@@ -163,7 +170,7 @@ Universal.xcframework/
                     └── DWARF
                         └── Universal
 
-94 directories, 59 files
+97 directories, 63 files
 ```
 
 ## Info.plist
@@ -173,6 +180,27 @@ Universal.xcframework/
 ```
 Dict {
     AvailableLibraries = Array {
+        Dict {
+            SupportedPlatform = tvos
+            DebugSymbolsPath = dSYMs
+            SupportedArchitectures = Array {
+                arm64
+            }
+            BitcodeSymbolMapsPath = BCSymbolMaps
+            LibraryPath = Universal.framework
+            LibraryIdentifier = tvos-arm64
+        }
+        Dict {
+            SupportedPlatform = tvos
+            DebugSymbolsPath = dSYMs
+            SupportedPlatformVariant = simulator
+            SupportedArchitectures = Array {
+                arm64
+                x86_64
+            }
+            LibraryPath = Universal.framework
+            LibraryIdentifier = tvos-arm64_x86_64-simulator
+        }
         Dict {
             SupportedPlatform = watchos
             DebugSymbolsPath = dSYMs
@@ -185,13 +213,35 @@ Dict {
             LibraryIdentifier = watchos-arm64_x86_64-simulator
         }
         Dict {
-            SupportedPlatform = macos
+            SupportedPlatform = ios
             DebugSymbolsPath = dSYMs
+            SupportedPlatformVariant = maccatalyst
             SupportedArchitectures = Array {
+                arm64
                 x86_64
             }
             LibraryPath = Universal.framework
-            LibraryIdentifier = macos-x86_64
+            LibraryIdentifier = ios-arm64_x86_64-maccatalyst
+        }
+        Dict {
+            SupportedPlatform = macos
+            DebugSymbolsPath = dSYMs
+            SupportedArchitectures = Array {
+                arm64
+                x86_64
+            }
+            LibraryPath = Universal.framework
+            LibraryIdentifier = macos-arm64_x86_64
+        }
+        Dict {
+            SupportedPlatform = ios
+            DebugSymbolsPath = dSYMs
+            SupportedArchitectures = Array {
+                arm64
+            }
+            BitcodeSymbolMapsPath = BCSymbolMaps
+            LibraryPath = Universal.framework
+            LibraryIdentifier = ios-arm64
         }
         Dict {
             SupportedPlatform = watchos
@@ -200,27 +250,9 @@ Dict {
                 arm64_32
                 armv7k
             }
+            BitcodeSymbolMapsPath = BCSymbolMaps
             LibraryPath = Universal.framework
             LibraryIdentifier = watchos-arm64_32_armv7k
-        }
-        Dict {
-            SupportedPlatform = ios
-            DebugSymbolsPath = dSYMs
-            SupportedPlatformVariant = maccatalyst
-            SupportedArchitectures = Array {
-                x86_64
-            }
-            LibraryPath = Universal.framework
-            LibraryIdentifier = ios-x86_64-maccatalyst
-        }
-        Dict {
-            SupportedPlatform = tvos
-            DebugSymbolsPath = dSYMs
-            SupportedArchitectures = Array {
-                arm64
-            }
-            LibraryPath = Universal.framework
-            LibraryIdentifier = tvos-arm64
         }
         Dict {
             SupportedPlatform = ios
@@ -232,26 +264,6 @@ Dict {
             }
             LibraryPath = Universal.framework
             LibraryIdentifier = ios-arm64_x86_64-simulator
-        }
-        Dict {
-            SupportedPlatform = ios
-            DebugSymbolsPath = dSYMs
-            SupportedArchitectures = Array {
-                arm64
-            }
-            LibraryPath = Universal.framework
-            LibraryIdentifier = ios-arm64
-        }
-        Dict {
-            SupportedPlatform = tvos
-            DebugSymbolsPath = dSYMs
-            SupportedPlatformVariant = simulator
-            SupportedArchitectures = Array {
-                arm64
-                x86_64
-            }
-            LibraryPath = Universal.framework
-            LibraryIdentifier = tvos-arm64_x86_64-simulator
         }
     }
     CFBundlePackageType = XFWK

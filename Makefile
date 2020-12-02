@@ -18,12 +18,14 @@ macos:
 	xcodebuild -project Universal/Universal.xcodeproj archive -scheme Universal -archivePath tmp/archive/macos -derivedDataPath tmp/macos -sdk macosx SKIP_INSTALL=NO BUILD_LIBRARIES_FOR_DISTRIBUTION=YES
 
 Universal.xcframework:
+	# The `-debug-symbols` option is new in xcode12 but it needs the full path - a partial one will fail
+	# BCSymbols includes an UUID that change on each build and watchOS has more than one (arch related)
 	xcodebuild -create-xcframework \
-		-framework tmp/archive/ios.xcarchive/Products/Library/Frameworks/Universal.framework -debug-symbols `pwd`/tmp/archive/ios.xcarchive/dSYMs/Universal.framework.dSYM \
+		-framework tmp/archive/ios.xcarchive/Products/Library/Frameworks/Universal.framework -debug-symbols `pwd`/tmp/archive/ios.xcarchive/dSYMs/Universal.framework.dSYM -debug-symbols `pwd`/tmp/archive/ios.xcarchive/BCSymbolMaps/*.bcsymbolmap \
 		-framework tmp/archive/ios-sim.xcarchive/Products/Library/Frameworks/Universal.framework -debug-symbols `pwd`/tmp/archive/ios-sim.xcarchive/dSYMs/Universal.framework.dSYM \
-		-framework tmp/archive/tvos.xcarchive/Products/Library/Frameworks/Universal.framework -debug-symbols `pwd`/tmp/archive/tvos.xcarchive/dSYMs/Universal.framework.dSYM \
+		-framework tmp/archive/tvos.xcarchive/Products/Library/Frameworks/Universal.framework -debug-symbols `pwd`/tmp/archive/tvos.xcarchive/dSYMs/Universal.framework.dSYM -debug-symbols `pwd`/tmp/archive/tvos.xcarchive/BCSymbolMaps/*.bcsymbolmap \
 		-framework tmp/archive/tvos-sim.xcarchive/Products/Library/Frameworks/Universal.framework -debug-symbols `pwd`/tmp/archive/tvos-sim.xcarchive/dSYMs/Universal.framework.dSYM \
-		-framework tmp/archive/watchos.xcarchive/Products/Library/Frameworks/Universal.framework -debug-symbols `pwd`/tmp/archive/watchos.xcarchive/dSYMs/Universal.framework.dSYM \
+		-framework tmp/archive/watchos.xcarchive/Products/Library/Frameworks/Universal.framework -debug-symbols `pwd`/tmp/archive/watchos.xcarchive/dSYMs/Universal.framework.dSYM $(addprefix -debug-symbols `pwd`/,$(wildcard tmp/archive/watchos.xcarchive/BCSymbolMaps/*.bcsymbolmap)) \
 		-framework tmp/archive/watchos-sim.xcarchive/Products/Library/Frameworks/Universal.framework -debug-symbols `pwd`/tmp/archive/watchos-sim.xcarchive/dSYMs/Universal.framework.dSYM \
 		-framework tmp/archive/macos-catalyst.xcarchive/Products/Library/Frameworks/Universal.framework -debug-symbols `pwd`/tmp/archive/macos-catalyst.xcarchive/dSYMs/Universal.framework.dSYM \
 		-framework tmp/archive/macos.xcarchive/Products/Library/Frameworks/Universal.framework -debug-symbols `pwd`/tmp/archive/macos.xcarchive/dSYMs/Universal.framework.dSYM \
