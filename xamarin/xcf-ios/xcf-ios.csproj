@@ -136,7 +136,7 @@
     </ItemGroup>
     <ItemGroup>
       <NativeReference Include="..\..\Universal.xcframework">
-        <Kind>Static</Kind>
+        <Kind>Framework</Kind>
         <SmartLink>False</SmartLink>
       </NativeReference>
     </ItemGroup>

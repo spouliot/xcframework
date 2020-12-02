@@ -76,6 +76,10 @@
     <IOSDebugOverWiFi>true</IOSDebugOverWiFi>
     <IOSDebuggerPort>10001</IOSDebuggerPort>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'Notification' ">
+    <WatchKitExecutionMode>Notification</WatchKitExecutionMode>
+    <NotificationPayload>..\xcf-watch.WatchOSExtension\PushNotificationPayload.json</NotificationPayload>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
@@ -125,10 +129,10 @@
     <InterfaceDefinition Include="Interface.storyboard" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\xcf_watch.WatchOSExtension\xcf_watch.WatchOSExtension.csproj">
-      <Name>xcf_watch.WatchOSExtension</Name>
-      <Project>{9F743938-8AFB-432F-A974-861B6F14EE7D}</Project>
-      <IsAppExtension>True</IsAppExtension>
+    <ProjectReference Include="..\xcf-watch.WatchOSExtension\xcf-watch.WatchOSExtension.csproj">
+      <IsAppExtension>true</IsAppExtension>
+      <Project>{4D8A8C1F-ED09-44D9-AAAB-1774C950E0A7}</Project>
+      <Name>xcf-watch.WatchOSExtension</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
