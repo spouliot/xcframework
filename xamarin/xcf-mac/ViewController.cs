@@ -22,7 +22,7 @@ namespace xcfmac {
 			} catch {
 				color = NSColor.Red;
 			}
-			View.BackgroundColor = color;
+			View.Window.BackgroundColor = color;
 		}
 
 		public override NSObject RepresentedObject {
