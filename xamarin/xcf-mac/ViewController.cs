@@ -13,9 +13,9 @@ namespace xcfmac {
 		[DllImport ("__Internal")]
 		public static extern int theUltimateAnswer ();
 
-		public override void ViewDidLoad ()
+		public override void ViewDidAppear ()
 		{
-			base.ViewDidLoad ();
+			base.ViewDidAppear ();
 			NSColor color;
 			try {
 				color = (theUltimateAnswer () == 42) ? NSColor.Green : NSColor.Orange;
