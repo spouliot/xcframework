@@ -27,6 +27,8 @@
     <IncludeMonoRuntime>false</IncludeMonoRuntime>
     <UseSGen>true</UseSGen>
     <UseRefCounting>true</UseRefCounting>
+    <LinkMode>None</LinkMode>
+    <AOTMode>None</AOTMode>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -34,14 +36,19 @@
     <OutputPath>bin\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <EnableCodeSigning>false</EnableCodeSigning>
+    <EnableCodeSigning>true</EnableCodeSigning>
     <CreatePackage>true</CreatePackage>
-    <EnablePackageSigning>false</EnablePackageSigning>
+    <EnablePackageSigning>true</EnablePackageSigning>
     <IncludeMonoRuntime>true</IncludeMonoRuntime>
     <UseSGen>true</UseSGen>
     <UseRefCounting>true</UseRefCounting>
     <CodeSignEntitlements>Entitlements.plist</CodeSignEntitlements>
     <LinkMode>SdkOnly</LinkMode>
+    <CodeSigningKey>Mac Developer</CodeSigningKey>
+    <PackageSigningKey>3rd Party Mac Developer Installer</PackageSigningKey>
+    <AOTMode>None</AOTMode>
+    <XamMacArch>x86_64</XamMacArch>
+    <UseHardenedRuntime>true</UseHardenedRuntime>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
